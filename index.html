@@ -1,0 +1,47 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر الإلكتروني</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>مرحبًا بك في المتجر</h1>
+        <button id="discord-btn">ربط الديسكورد</button>
+    </header>
+
+    <section id="shop">
+        <div class="product">
+            <h2>منتج 1</h2>
+            <button class="buy-btn">شراء</button>
+        </div>
+        <div class="product">
+            <h2>منتج 2</h2>
+            <button class="buy-btn">شراء</button>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("discord-btn").addEventListener("click", () => {
+            window.location.href = "/auth/discord";
+        });
+
+        document.querySelectorAll(".buy-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                fetch("/user")
+                    .then(res => res.json())
+                    .then(user => {
+                        if (!user.username) {
+                            alert("يجب ربط حسابك في الديسكورد أولاً!");
+                        } else {
+                            alert("تم طلب المنتج بنجاح!");
+                        }
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+{
+    "client_id": "1339963361772965989",
+    "client_secret": "5uaW7CVzlFLrR4yMMdXC8n4dXxIVq54s",
+    "redirect_uri": "http://localhost:4000/auth/discord/callback",
+    "session_secret": "YOUR_SESSION_SECRET"
+  }
+  
